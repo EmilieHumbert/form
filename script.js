@@ -101,3 +101,15 @@ function ShowpasswordError() {
 
   passwordError.className = 'error active';
 }
+
+// confirm password
+const confirmPassword = document.getElementById('confirm-password');
+
+form.addEventListener('submit', function (event) {
+  if(confirmPassword.value != password.value) {
+    passwordError.textContent = 'The two passwords don\'t match';
+
+    event.preventDefault();
+  }
+});
+
