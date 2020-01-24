@@ -5,11 +5,8 @@ body {
   margin : 0 auto;
 }
 
-p {
-  display: block;
-}
-
-input[type=email]{
+input[type=email],
+input[type=text]{
   -webkit-appearance: none;
   appearance: none;
 

@@ -268,13 +268,19 @@
               <option value="Zambia">Zambia</option>
               <option value="Zimbabwe">Zimbabwe</option>
             </datalist>
+            <span class="error" aria-live="polite"></span>
+        </label>
+      </p>
+    </div>
+    <div>
+      <p>
+        <label for="zip-code">
+          <span>Please enter your zip code:</span>
+          <input type="text" id="zip-code" name="mail" pattern="^\d{5}(-\d{4})?(?!-)$">
+          <span class="error" aria-live="polite"></span>
         </label>
       </p>
       <button>Submit</button>
-    </div>
-    <div>
-      <!-- zip code -->
-  
     </div>
     <div>
       <!-- password -->
