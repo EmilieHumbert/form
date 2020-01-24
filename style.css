@@ -6,7 +6,8 @@ body {
 }
 
 input[type=email],
-input[type=text]{
+input[type=text],
+input[type=password]{
   -webkit-appearance: none;
   appearance: none;
 

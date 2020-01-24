@@ -36,7 +36,6 @@ function showEmailError() {
 
 
 // zipcode
-
 const zipCode = document.getElementById('zip-code');
 const zipCodeError = document.querySelector('#zip-code + span.error');
 
@@ -61,10 +60,44 @@ function showZipError() {
   if(zipCode.validity.valueMissing) {
     zipCodeError.textContent = 'Please enter your zip code.';
   } else if(zipCode.validity.patternMismatch) {
-    zipCodeError.textContent = 'Entered value needs to be a zip code (e.g. 55555 or 55555-5555)';
+    zipCodeError.textContent = 'Entered value needs to be a zip code (e.g. 55555 or 55555-5555).';
   } else if(zipCode.validity.tooShort) {
     zipCodeError.textContent = `Zip code should be at least ${ zipCode.minLength } characters; you entered ${ zipCode.value.length }.`;
   }
 
   zipCodeError.className = 'error active';
+}
+
+
+// password
+const password = document.getElementById('password');
+const passwordError = document.querySelector('#password + span.error');
+
+password.addEventListener('input', function (event) {
+  if (password.validity.valid) {
+    passwordError.innerHTML = ''; 
+    passwordError.className = 'error';
+  } else {
+    ShowpasswordError();
+  }
+});
+
+form.addEventListener('submit', function (event) {
+  if(!password.validity.valid) {
+    ShowpasswordError();
+
+    event.preventDefault();
+  }
+});
+
+function ShowpasswordError() {
+  if(password.validity.valueMissing) {
+    passwordError.textContent = 'Please enter password.';
+  } else if(password.validity.patternMismatch) {
+    passwordError.textContent = 'Your password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters.';
+  } else if(password.validity.tooShort) {
+    passwordError.textContent = `Zip code should be at least ${ password.minLength } characters; you entered ${ password.value.length }.`;
+  }
+
+  passwordError.className = 'error active';
 }
